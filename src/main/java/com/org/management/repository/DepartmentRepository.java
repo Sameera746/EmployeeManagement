@@ -8,4 +8,6 @@ import com.org.management.entity.Department;
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, Integer> {
     // Custom queries can be defined here if needed
+
+    Department findByDepName(String depName);
 }

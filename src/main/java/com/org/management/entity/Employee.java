@@ -1,31 +1,27 @@
 package com.org.management.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
-import javax.persistence.Table;
+import lombok.Data;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "employee")
-@Getter // Lombok generates getters for all fields
-@Setter // Lombok generates setters for all fields
+@Data // Lombok will generate getters, setters, toString, equals, hashCode
+@Table(name = "EMPLOYEE")
 public class Employee {
 
     @Id
+    @Column(name = "emp_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer empId; // Employee ID
 
+    @Column(name = "emp_name")
     private String empName; // Employee Name
 
+    @Column(name = "emp_salary")
     private Double empSalary; // Employee Salary
 
     @ManyToOne // Many employees belong to one department
-    @JoinColumn(name = "dep_id") // This specifies the foreign key column
+    @JoinColumn(name = "dep_id", nullable = false) // This specifies the foreign key column
     private Department department; // Reference to the Department entity (foreign key)
 
-    // Lombok will generate the necessary getters and setters for all fields,
-    // including the 'department' field
+    // Lombok will generate the necessary getters and setters for all fields
 }

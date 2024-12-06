@@ -16,7 +16,12 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    // Fetch top 10 earning employees in a given department
+    /**
+     * Fetches top 10 employees by department name.
+     * 
+     * @param departmentName the name of the department
+     * @return list of employees
+     */
     public List<Employee> getTop10EmployeesByDepartment(String departmentName) {
         Pageable topTen = PageRequest.of(0, 10); // PageRequest for top 10 records
         return employeeRepository.findTopTenByDepartmenDepName(departmentName, topTen);

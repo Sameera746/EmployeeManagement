@@ -1,9 +1,9 @@
-INSERT INTO employee_dep (dep_id, dep_name, dep_desc) VALUES
+INSERT INTO Department (dep_id, dep_name, dep_desc) VALUES
 (1, 'HR', 'Handles recruitment, employee relations, and company policies'),
 (2, 'IT', 'Manages company technology infrastructure and software development'),
 (3, 'Finance', 'Oversees budgeting, accounting, and financial planning');
 
-INSERT INTO employee (emp_id, emp_name, emp_salary, dep_id) VALUES
+INSERT INTO Employee (emp_id, emp_name, emp_salary, dep_id) VALUES
 (1, 'Alice Johnson', 5500.00, 1),
 (2, 'Bob Smith', 5500.00, 1),
 (3, 'Carol Davis', 5300.00, 1),
