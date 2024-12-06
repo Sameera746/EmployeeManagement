@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.org.management.entity.Employee;
+import com.org.management.exceptions.DepartmentNotFoundException;
 import com.org.management.service.DepartmentService;
 import com.org.management.service.EmployeeService;
 
@@ -38,6 +39,8 @@ public class EmployeeController {
         // Validate if department exists
         if (departmentService.getDepartmentByName(departmentName) == null) {
             logger.error("Department with name '{}' does not exist.", departmentName);
+            throw new DepartmentNotFoundException("Department not found: " +
+                    departmentName);
         }
 
         List<Employee> topEmployees = employeeService.getTop10EmployeesByDepartment(departmentName);
