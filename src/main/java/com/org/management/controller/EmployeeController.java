@@ -60,7 +60,7 @@ public class EmployeeController {
      * 
      * @return list of the highest earning employee(s)
      */
-    @GetMapping("/highest")
+    @GetMapping("/highest-earning")
     public List<Employee> getHighestEarningEmployees() {
         logger.info("Fetching highest earning employee(s) across all departments.");
 
