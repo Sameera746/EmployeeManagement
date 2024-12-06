@@ -1,0 +1,25 @@
+<div>
+    <h2>Employee Management</h2>
+  
+    <div>
+      <label for="department">Department Name: </label>
+      <input
+        id="department"
+        [(ngModel)]="departmentName"
+        type="text"
+        placeholder="Enter department name"
+      />
+      <button (click)="getTop10Employees()">Get Top 10 Employees</button>
+      <button (click)="getHighestEarningEmployees()">Get Highest Earners</button>
+    </div>
+  
+    <ag-grid-angular
+      style="width: 100%; height: 400px;"
+      class="ag-theme-alpine custom-grid"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [pagination]="true"
+      [paginationPageSize]="10">
+    </ag-grid-angular>
+  </div>
+  
